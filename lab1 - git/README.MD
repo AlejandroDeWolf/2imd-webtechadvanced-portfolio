@@ -1,5 +1,5 @@
 # Lab 1
-Here you can find all the assignments for lab 1
+Here you can find all my assignments for lab 1
 
 ## Website
 [Link to website](https://github.com/AlejandroDeWolf/lab1-website)
