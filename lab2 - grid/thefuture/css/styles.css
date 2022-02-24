@@ -9,21 +9,30 @@
 }
 
 .block {
-    background-color: red;
+    background-color: #f93259;
+    font-family: sans-serif;
+    font-size: 1.4em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #64f6f3;
     grid-row: 3/4;
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #feff03;
     grid-row: 6/7;
 }
 
 
-@media ( min-width: 400px ) {
+@media ( min-width: 500px ) {
     .container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -42,7 +51,7 @@
 }
 
 
-@media ( min-width: 600px ) {
+@media ( min-width: 950px ) {
     .container {
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(3, 1fr);
