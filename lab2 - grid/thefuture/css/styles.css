@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: .4em;
+}
+
+.block {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 1/-1;
+}
+
+.yellow {
+    background-color: yellow;
+    grid-column: 4/6;
+    grid-row: 2/4;
+}
