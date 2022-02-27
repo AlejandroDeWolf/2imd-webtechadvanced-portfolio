@@ -6,8 +6,19 @@ body {
     font-family: sans-serif;
 }
 
+.container {
+    background-image: url(../img/background.png);
+
+}
+
 .container div {
     text-align: center;
+}
+
+.header {
+    color: white;
+    background-color: black;
+    padding: 1.4em 0 1.4em 0;
 }
 
 h1 {
@@ -18,14 +29,20 @@ h1 {
 
 h2 {
     font-size: .8em;
-    font-weight: normal;
+    font-weight: lighter;
     letter-spacing: .2em;
+    margin: .8em 0 0 0;
+}
+
+h3 {
+    margin: 0;
+    display: inline;
 }
 
 .qr-code {
     width: 80%;
     display: block;
-    margin: 0 auto;
+    margin: 5em auto;
 }
 
 div img {
@@ -34,23 +51,26 @@ div img {
 }
 
 .footer {
-    border: solid 1px black;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    border: solid 1px black;
 }
 
 .price {
     grid-column: 1/3;
     border-top: solid 1px black;
+    letter-spacing: .2em;
 }
 
 .date {
     border-right: solid 1px black;
+    letter-spacing: .2em;
 }
 
 .footer > div {
-    font-weight: bold;
+    font-weight: bolder;
+    padding: .8em 1em;
 }
 
 div > span {
@@ -60,3 +80,4 @@ div > span {
 .hidden {
     display: none;
 }
+
