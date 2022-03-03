@@ -2,7 +2,7 @@
 Here you can find all my assignments for lab 2
 
 ## "The Future" layout
-[Link to website](https://github.com/AlejandroDeWolf/lab1-website)
+Link to codepen: ["The Future"](https://codepen.io/alejandrodewolf/pen/dyZgyjz)
 
 ## Grid ticket
-![proof of work](https://cdn.discordapp.com/attachments/819889118204133396/943918680729849956/unknown.png)
+Link to codepen: [Grid ticket](https://codepen.io/alejandrodewolf/pen/PoOyoyd)
