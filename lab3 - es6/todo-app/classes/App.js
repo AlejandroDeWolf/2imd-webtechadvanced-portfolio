@@ -24,7 +24,8 @@ export default class App {
         if (e.key === "Enter") {
             console.log("📕");
 
-            let todo = new Todo("This is a new todo");
+            let todoValue = document.querySelector("#add-item-text").value;
+            let todo = new Todo(todoValue);
             todo.add();
         }
         // this.reset();
