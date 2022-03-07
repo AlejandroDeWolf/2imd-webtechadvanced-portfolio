@@ -27,9 +27,10 @@ export default class App {
       let todo = new Todo(todoValue);
       todo.add();
       this.reset();
+      // this.saveToStorage();
     }
     // this.reset();
-    console.log(this);
+    // console.log(this);
 
     // HINT🤩
     // this function should create a new todo by using the Todo() class

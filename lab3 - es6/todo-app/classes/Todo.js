@@ -13,22 +13,26 @@ export default class Todo {
     // don't forget to hook up an event listener for the click event
     // return newNote;
     let li = document.createElement("li");
-    li.innerHTML = this.title;
-
-    li.addEventListener("click", this.markDone);
 
     if (this.title.startsWith("high:")) {
       li.classList.add("prior-high");
+      this.title = this.title.replace("high:", "");
     }
-    else if (this.title.startsWith("medum:")) {
+    else if (this.title.startsWith("medium:")) {
       li.classList.add("prior-medium");
+      this.title = this.title.replace("medium:", "");
     }
     else if (this.title.startsWith("low:")) {
       li.classList.add("prior-low");
+      this.title = this.title.replace("low:", "");
     }
     else {
       li.classList.add("prior-medium");
+      this.title = this.title.replace("medium:", "");
     }
+
+    li.addEventListener("click", this.markDone);
+    li.innerHTML = this.title;
 
     return li;
   }
@@ -56,5 +60,6 @@ export default class Todo {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    // localStorage.setItem(this.title, JSON.stringify(this));
   }
 }
