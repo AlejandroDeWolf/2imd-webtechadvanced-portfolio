@@ -15,9 +15,20 @@ export default class Todo {
     let li = document.createElement("li");
     li.innerHTML = this.title;
 
-    li.classList.add("prior-high");
-
     li.addEventListener("click", this.markDone);
+
+    if (this.title.startsWith("high:")) {
+      li.classList.add("prior-high");
+    }
+    else if (this.title.startsWith("medum:")) {
+      li.classList.add("prior-medium");
+    }
+    else if (this.title.startsWith("low:")) {
+      li.classList.add("prior-low");
+    }
+    else {
+      li.classList.add("prior-medium");
+    }
 
     return li;
   }
