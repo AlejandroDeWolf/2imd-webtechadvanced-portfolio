@@ -27,7 +27,7 @@ export default class Todo {
     // this function should mark the current todo as done, by adding the correct CSS class
     // if the item is clicked, but was already marked as done, remove the item from the list
     if (this.classList.contains("done")) {
-      this.classList.remove("done");
+      this.remove();
     }
     else {
       this.classList.add("done");
