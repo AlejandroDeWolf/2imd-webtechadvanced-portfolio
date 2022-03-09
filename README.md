@@ -11,3 +11,8 @@ Link to [Lab 2](https://github.com/AlejandroDeWolf/2imd-webtechadvanced-portfoli
 
 * "The Future" codepen [link](https://codepen.io/alejandrodewolf/pen/dyZgyjz)
 * Grid ticket codepen [link](https://codepen.io/alejandrodewolf/pen/PoOyoyd)
+
+## Lab 3
+Link to [Lab 3](https://github.com/AlejandroDeWolf/2imd-webtechadvanced-portfolio/tree/main/lab3%20-%20es6)
+
+* Todo-list codepen [link](https://codesandbox.io/s/lab-3-es6-70pw4)
