@@ -15,4 +15,4 @@ Link to [Lab 2](https://github.com/AlejandroDeWolf/2imd-webtechadvanced-portfoli
 ## Lab 3
 Link to [Lab 3](https://github.com/AlejandroDeWolf/2imd-webtechadvanced-portfolio/tree/main/lab3%20-%20es6)
 
-* Todo-app codepen [link](https://codesandbox.io/s/lab-3-es6-70pw4)
+* Todo-app codesandbox [link](https://codesandbox.io/s/lab-3-es6-70pw4)
