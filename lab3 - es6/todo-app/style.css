@@ -7,10 +7,10 @@ h1 {
   color: white;
 }
 
-#todo-list li.prior-high,
+/* #todo-list li.prior-high,
 .prior-medium,
 .prior-low {
-}
+} */
 
 .prior-high {
   background-color: #ec0d19;
