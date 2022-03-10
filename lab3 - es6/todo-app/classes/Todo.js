@@ -1,6 +1,7 @@
 export default class Todo {
-  constructor(title) {
+  constructor(title, done = false) {
     this.title = title;
+    this.done = done;
   }
 
   createElement() {
@@ -23,13 +24,18 @@ export default class Todo {
       this.title = this.title.replace("medium:", "");
     }
 
+    li.prototype = this;
     li.addEventListener("click", this.markDone);
     li.innerHTML = this.title;
+
+    if (this.done == true) {
+      li.classList.add("done");
+    }
 
     return li;
   }
 
-  markDone(e) {
+  markDone() {
     if (this.classList.contains("done")) {
       this.remove();
       localStorage.removeItem(this.innerHTML);
@@ -37,6 +43,8 @@ export default class Todo {
     }
     else {
       this.classList.add("done");
+      this.prototype.done = true;
+      this.prototype.saveToStorage();
     }
   }
 
