@@ -22,9 +22,6 @@ export default class App {
   }
 
   loadFromStorage() {
-    // HINT🤩
-    // load all items from storage here and add them to the screen
-    // use the Todo class to create the elements
     let keys = Object.keys(localStorage);
 
     for (let i = 0; i < keys.length; i++) {

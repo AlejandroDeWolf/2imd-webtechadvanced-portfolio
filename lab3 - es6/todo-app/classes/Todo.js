@@ -9,15 +9,15 @@ export default class Todo {
 
     if (this.title.startsWith("low:")) {
       li.classList.add("prior-low");
-      this.title = this.title.replace("low:", "");
+      li.innerHTML = this.title.slice(4);
     }
     else if (this.title.startsWith("high:")) {
       li.classList.add("prior-high");
-      this.title = this.title.replace("high:", "");
+      li.innerHTML = this.title.slice(5);
     }
     else if (this.title.startsWith("medium:")) {
       li.classList.add("prior-medium");
-      this.title = this.title.replace("medium:", "");
+      li.innerHTML = this.title.slice(7);
     }
     else {
       li.classList.add("prior-medium");
@@ -25,8 +25,7 @@ export default class Todo {
     }
 
     li.prototype = this;
-    li.addEventListener("click", this.markDone);
-    li.innerHTML = this.title;
+    li.addEventListener("click", this.markDone.bind(li));
 
     if (this.done == true) {
       li.classList.add("done");
@@ -38,10 +37,9 @@ export default class Todo {
   markDone() {
     if (this.classList.contains("done")) {
       this.remove();
-      localStorage.removeItem(this.innerHTML);
-      // console.log(this.innerHTML);
-    }
-    else {
+      localStorage.removeItem(this.prototype.title);
+
+    } else {
       this.classList.add("done");
       this.prototype.done = true;
       this.prototype.saveToStorage();
