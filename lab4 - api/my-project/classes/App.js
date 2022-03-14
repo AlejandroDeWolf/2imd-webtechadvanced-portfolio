@@ -23,14 +23,14 @@ export default class App {
                 return res.json();
             })
             .then((json) => {
-                // console.log(json);
+                console.log(json);
                 this.printWeather(json);
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(() => {
-                // console.log("finally done");
+                console.log("finally done");
             });
     }
 
