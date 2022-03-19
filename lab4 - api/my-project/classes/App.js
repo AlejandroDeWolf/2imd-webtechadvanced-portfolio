@@ -23,7 +23,7 @@ export default class App {
                 return res.json();
             })
             .then((json) => {
-                console.log(json);
+                // console.log(json);
                 this.printWeather(json);
             })
             .catch((err) => {
@@ -40,9 +40,36 @@ export default class App {
 
         document.querySelector("h1").innerHTML = summary;
         document.querySelector("h2").innerHTML = temp + "°";
+
+        if (temp >= 15) {
+            this.getRecipe(0, 10);
+        }
+        else {
+            this.getRecipe(10, 100);
+        }
     }
 
     locationError(error) {
         console.log(error);
+    }
+
+
+    // ----- RECIPE API -----
+    getRecipe(minFat, maxFat) {
+        let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=5058414d7b5f431c89f37755203c4abc&minFat=${minFat}&maxFat=${maxFat}`;
+        fetch(url)
+            .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
+                return res.json();
+            })
+            .then((json) => {
+                console.log(json.results[Math.floor(Math.random() * 10)]);
+                // this.printWeather(json);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                console.log("finally done");
+            });
     }
 }
