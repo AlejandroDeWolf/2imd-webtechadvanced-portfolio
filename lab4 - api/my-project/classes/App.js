@@ -39,8 +39,7 @@ export default class App {
         let summary = json.weather[0].description;
         let temp = Math.round(json.main.temp);
 
-        document.querySelector("h1").innerHTML = summary;
-        document.querySelector("h2").innerHTML = temp + "°";
+        document.querySelector("h1").innerHTML = "Today there will be " + summary + " with a temperature of " + temp + "°";
 
         if (temp >= 15) {
             this.getRecipe(0, 10);
@@ -98,7 +97,7 @@ export default class App {
         let recipeImage = recipe.image;
         // console.log(recipeImage);
 
-        document.querySelector("h3").innerHTML = recipeTitle;
-        document.querySelector("img").src = recipeImage;
+        document.querySelector("h3").innerHTML = "That means it's the perfect time to make some " + recipeTitle + "!";
+        document.querySelector(".recipeImage").src = recipeImage;
     }
 }
