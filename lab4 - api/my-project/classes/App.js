@@ -1,6 +1,7 @@
 export default class App {
-    constructor(API_KEY) {
-        this.API_KEY = API_KEY;
+    constructor(API_KEY_WEATHER, API_KEY_RECIPE) {
+        this.API_KEY_WEATHER = API_KEY_WEATHER;
+        this.API_KEY_RECIPE = API_KEY_RECIPE;
         this.lat = 0;
         this.long = 0;
         this.getLocation();
@@ -17,7 +18,7 @@ export default class App {
     }
 
     getWeather() {
-        let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${this.lat}&lon=${this.long}&appid=${this.API_KEY}`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${this.lat}&lon=${this.long}&appid=${this.API_KEY_WEATHER}`;
         fetch(url)
             .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
                 return res.json();
@@ -56,7 +57,7 @@ export default class App {
 
     // ----- RECIPE API -----
     getRecipe(minFat, maxFat) {
-        let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=5058414d7b5f431c89f37755203c4abc&minFat=${minFat}&maxFat=${maxFat}`;
+        let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.API_KEY_RECIPE}&minFat=${minFat}&maxFat=${maxFat}`;
         fetch(url)
             .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
                 return res.json();
