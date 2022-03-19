@@ -63,7 +63,8 @@ export default class App {
             })
             .then((json) => {
                 console.log(json.results[Math.floor(Math.random() * 10)]);
-                // this.printWeather(json);
+                let recipe = json.results[Math.floor(Math.random() * 10)]
+                this.printRecipe(recipe);
             })
             .catch((err) => {
                 console.log(err);
@@ -71,5 +72,15 @@ export default class App {
             .finally(() => {
                 console.log("finally done");
             });
+    }
+
+    printRecipe(recipe) {
+        let recipeTitle = recipe.title;
+        // console.log(recipeTitle);
+        let recipeImage = recipe.image;
+        // console.log(recipeImage);
+
+        document.querySelector("h3").innerHTML = recipeTitle;
+        document.querySelector("img").src = recipeImage;
     }
 }
