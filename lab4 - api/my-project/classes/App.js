@@ -78,40 +78,40 @@ export default class App {
 
     // ----- RECIPE API -----
     getRecipe(minFat, maxFat) {
-        // let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.API_KEY_RECIPE}&minFat=${minFat}&maxFat=${maxFat}`;
-        // fetch(url)
-        //     .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
-        //         return res.json();
-        //     })
-        //     .then((json) => {
-        //         console.log(json.results[Math.floor(Math.random() * 10)]);
-        //         let recipe = json.results[Math.floor(Math.random() * 10)]
-        //         this.printRecipe(recipe);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     })
-        //     .finally(() => {
-        //         console.log("finally done");
-        //     });
+        let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.API_KEY_RECIPE}&minFat=${minFat}&maxFat=${maxFat}`;
+        fetch(url)
+            .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
+                return res.json();
+            })
+            .then((json) => {
+                // console.log(json.results[Math.floor(Math.random() * 10)]);
+                let recipe = json.results[Math.floor(Math.random() * 10)]
+                this.printRecipe(recipe);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                console.log("finally done");
+            });
 
         // ------ HARD-CODED OBJECT FOR TESTING TO AVOID UNNECESSARY API-CALLS -----
-        let staticRecipe = {
-            "id": 716381,
-            "title": "Nigerian Snail Stew",
-            "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg",
-            "imageType": "jpg",
-            "nutrition": {
-                "nutrients": [
-                    {
-                        "name": "Fat",
-                        "amount": 4.7106,
-                        "unit": "g"
-                    }
-                ]
-            }
-        }
-        this.printRecipe(staticRecipe);
+        // let staticRecipe = {
+        //     "id": 716381,
+        //     "title": "Nigerian Snail Stew",
+        //     "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg",
+        //     "imageType": "jpg",
+        //     "nutrition": {
+        //         "nutrients": [
+        //             {
+        //                 "name": "Fat",
+        //                 "amount": 4.7106,
+        //                 "unit": "g"
+        //             }
+        //         ]
+        //     }
+        // }
+        // this.printRecipe(staticRecipe);
     }
 
     printRecipe(recipe) {
