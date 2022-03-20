@@ -9,18 +9,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-[#cce486] w-80 mx-auto mt-10 h-[600px]">
-  <div class="logo mx-auto w-24"><img class="mx-auto w-100"
+<body class="bg-[#a9bd6d] w-80 mx-auto mt-10 h-[600px]">
+  <div class="logo mx-auto w-32"><img class="mx-auto w-100"
       src="https://logos-download.com/wp-content/uploads/2016/10/HelloFresh_logo_Hello_Fresh.png" alt=""></div>
 
   <div class="app mt-10">
-    <h1 class="font-['Oswald'] text-[#17510d]	text-2xl">Loading...</h1>
+    <h1 class="font-['Oswald'] text-[#17510d]	text-2xl">Today there will be <span
+        class="live-weather text-[#fbfff2]"></span> with a
+      temperature of <span class="live-temp text-[#fbfff2]"></span></h1>
   </div>
 
   <div class="app mt-10">
-    <h3 class="font-['Oswald'] text-[#17510d] text-2xl pb-10">Loading...</h3>
+    <h3 class="font-['Oswald'] text-[#17510d] text-2xl pb-10">That means it's the perfect time to make some <span
+        class="live-recipe text-[#fbfff2]"></span>!</h3>
     <img class="recipeImage mx-auto rounded-lg" src="" alt="">
+    <a href="" class="font-['Oswald'] uppercase bg-[#17510d] text-[#fbfff2] px-10 py-4 rounded-lg hover:bg-red">Order
+      ingredients
+      now!</a>
   </div>
+
   <script type="module" src="/main.js"></script>
 </body>
 
