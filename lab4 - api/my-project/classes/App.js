@@ -7,6 +7,23 @@ export default class App {
         this.getLocation();
     }
 
+    checkLocalStorage() {
+        //fetch uitvoeren als localstorage leeg is
+        if (localStorage.getItem("currentWeather") === null) {
+            this.getWeather();
+        }
+        //weer uit localstorage halen een timer van één uur instellen voor hij leeggemaakt wordt
+        else {
+            let currentWeather = localStorage.getItem("currentWeather");
+            currentWeather = JSON.parse(currentWeather);
+            let timeNow = Math.round(Date.now());
+            if (timeNow - currentWeather.time > 3600) {
+                localStorage.clear();
+                this.getWeather();
+            }
+        }
+    }
+
     getLocation() {
         navigator.geolocation.getCurrentPosition(this.locationSucces.bind(this), this.locationError.bind(this));
     }
@@ -14,7 +31,7 @@ export default class App {
     locationSucces(location) {
         this.lat = location.coords.latitude;
         this.long = location.coords.longitude;
-        this.getWeather();
+        this.checkLocalStorage();
     }
 
     getWeather() {
@@ -26,6 +43,10 @@ export default class App {
             .then((json) => {
                 // console.log(json);
                 this.printWeather(json);
+
+                //object maken om op te slaan in de localstorage
+                let currentWeather = { "description": json.weather[0].main, "temperature": json.main.temp, "time": Math.round(new Date().getTime() / 1000) };
+                localStorage.setItem('currentWeather', JSON.stringify(currentWeather));
             })
             .catch((err) => {
                 console.log(err);
@@ -57,40 +78,40 @@ export default class App {
 
     // ----- RECIPE API -----
     getRecipe(minFat, maxFat) {
-        let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.API_KEY_RECIPE}&minFat=${minFat}&maxFat=${maxFat}`;
-        fetch(url)
-            .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
-                return res.json();
-            })
-            .then((json) => {
-                console.log(json.results[Math.floor(Math.random() * 10)]);
-                let recipe = json.results[Math.floor(Math.random() * 10)]
-                this.printRecipe(recipe);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => {
-                console.log("finally done");
-            });
+        // let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.API_KEY_RECIPE}&minFat=${minFat}&maxFat=${maxFat}`;
+        // fetch(url)
+        //     .then((res) => {  //function schrijven als de respons goed is aangekomen van de url
+        //         return res.json();
+        //     })
+        //     .then((json) => {
+        //         console.log(json.results[Math.floor(Math.random() * 10)]);
+        //         let recipe = json.results[Math.floor(Math.random() * 10)]
+        //         this.printRecipe(recipe);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     })
+        //     .finally(() => {
+        //         console.log("finally done");
+        //     });
 
         // ------ HARD-CODED OBJECT FOR TESTING TO AVOID UNNECESSARY API-CALLS -----
-        // let staticRecipe = {
-        //     "id": 716381,
-        //     "title": "Nigerian Snail Stew",
-        //     "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg",
-        //     "imageType": "jpg",
-        //     "nutrition": {
-        //         "nutrients": [
-        //             {
-        //                 "name": "Fat",
-        //                 "amount": 4.7106,
-        //                 "unit": "g"
-        //             }
-        //         ]
-        //     }
-        // }
-        // this.printRecipe(staticRecipe);
+        let staticRecipe = {
+            "id": 716381,
+            "title": "Nigerian Snail Stew",
+            "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg",
+            "imageType": "jpg",
+            "nutrition": {
+                "nutrients": [
+                    {
+                        "name": "Fat",
+                        "amount": 4.7106,
+                        "unit": "g"
+                    }
+                ]
+            }
+        }
+        this.printRecipe(staticRecipe);
     }
 
     printRecipe(recipe) {
